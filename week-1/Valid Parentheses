@@ -1,0 +1,26 @@
+https://leetcode.com/problems/valid-parentheses/
+
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char> store;
+        char top_element;
+        for(int i=0;i<s.length();i++){
+            if(s[i]=='(' || s[i]=='[' || s[i]=='{')
+                store.push(s[i]);
+            else{
+                if(store.empty())
+                    return false;
+                top_element=store.top();
+                store.pop();
+                if(top_element=='(' && s[i]!=')')
+                    return false;
+                if(top_element=='[' && s[i]!=']')
+                    return false;
+                if(top_element=='{' && s[i]!='}')
+                    return false;
+            }
+        }
+        return store.empty();
+    }
+};
