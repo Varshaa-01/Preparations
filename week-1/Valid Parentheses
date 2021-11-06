@@ -24,3 +24,5 @@ public:
         return store.empty();
     }
 };
+
+TIME COMPLEXITY:O(N)
