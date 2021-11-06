@@ -22,3 +22,5 @@ public:
         return index;
     }
 };
+
+TIME COMPLEXITY:O(N)
