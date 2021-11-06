@@ -1,0 +1,17 @@
+https://practice.geeksforgeeks.org/problems/stickler-theif-1587115621/1#
+
+class Solution
+{
+    public:
+    //Function to find the maximum money the thief can get.
+    int FindMaxSum(int arr[], int n)
+    {
+        int a=arr[0],b=0,c,i;
+        for(i=1;i<n;i++){
+            c=(a>b)?a:b;
+            a=b+arr[i];
+            b=c;
+        }
+        return((a>b)?a:b);
+    }
+};
