@@ -15,3 +15,5 @@ class Solution
         return((a>b)?a:b);
     }
 };
+
+TIME COMPLEXITY:O(N)
