@@ -11,3 +11,5 @@ class Solution{
         }
     }
 };
+
+TIME COMPLEXITY:O(N)
