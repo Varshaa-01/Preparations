@@ -1,0 +1,19 @@
+https://practice.geeksforgeeks.org/problems/k-largest-elements3736/1
+
+class Solution
+{
+    //Function to return k largest elements from an array.
+    public static ArrayList<Integer> kLargest(int arr[], int n, int k)
+    {
+        // code here 
+        Arrays.sort(arr);
+        ArrayList<Integer> ans=new ArrayList<Integer>();
+        int l=n-k;
+        for(int i=n-1;i>l-1;i--){
+            ans.add(arr[i]);
+        }
+        return ans;
+    }
+}
+
+TIME COMPLEXITY:O(N)
