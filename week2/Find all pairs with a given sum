@@ -1,0 +1,23 @@
+https://practice.geeksforgeeks.org/problems/find-all-pairs-whose-sum-is-x5808/1#
+
+class Solution {
+    public pair[] allPairs( long A[], long B[], long N, long M, long X) {
+        // Your code goes here 
+        Set<Long> set=new HashSet<>();
+        List<long[]> sum_pairs=new ArrayList<>();
+        for(long num : A){
+            set.add(num);
+        }
+        for(long temp : B){
+            if(set.contains(X-temp)){
+                sum_pairs.add(new long[] {X-temp, temp});
+            }
+        }
+        Collections.sort(sum_pairs,(a,b)->Long.compare(a[0],b[0]));
+        pair[] res=new pair[sum_pairs.size()];
+        for(int i=0;i<sum_pairs.size();i++){
+            res[i]=new pair(sum_pairs.get(i)[0],sum_pairs.get(i)[1]);
+        }
+        return res;
+        }
+}
