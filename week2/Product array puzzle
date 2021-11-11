@@ -1,0 +1,29 @@
+https://practice.geeksforgeeks.org/problems/product-array-puzzle4525/1
+
+class Solution{
+  public:
+    // nums: given vector
+    // return the Product vector P that hold product except self at each index
+    vector<long long int> productExceptSelf(vector<long long int>& nums, int n) {
+       
+        //code here    
+       long long int prefixProd[n];
+       long long int suffixProd[n];
+       prefixProd[0]=1;
+       prefixProd[1]=nums[0];
+       for(int i=2;i<n;i++)
+           prefixProd[i]=prefixProd[i-1]*nums[i-1];
+       suffixProd[n-1]=1;
+       suffixProd[n-2]=nums[n-1];
+       for(int i=n-3;i>=0;i--)
+          suffixProd[i]=suffixProd[i+1]*nums[i+1];
+        
+        vector<long long int>result(n);
+        for(int i=0;i<n;i++)
+        {
+            result[i]=prefixProd[i]*suffixProd[i];
+        }
+       return result;
+        
+    }
+};
