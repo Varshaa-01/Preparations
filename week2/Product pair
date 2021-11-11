@@ -1,0 +1,24 @@
+https://practice.geeksforgeeks.org/problems/equal-to-product3836/1#
+
+class Solution {
+    boolean isProduct(int[] arr, int n, long x) {
+        // code here
+        Set<Long> result=new HashSet<>();
+        for(int i=0;i<n;i++){
+            if(arr[i]==0){
+                if(x==0){
+                   return true; 
+                }
+                continue; 
+            }
+            int ele=arr[i];
+            long rem=x%(long)arr[i];
+            long div=x/(long)arr[i];
+            if(rem==0 && result.contains(div)){
+                return true;
+            }
+            result.add((long)ele);
+        }
+        return false;
+    }
+}
