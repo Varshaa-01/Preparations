@@ -1,0 +1,45 @@
+https://practice.geeksforgeeks.org/problems/spirally-traversing-a-matrix-1587115621/1
+
+class Solution
+{
+    //Function to return a list of integers denoting spiral traversal of matrix.
+    static ArrayList<Integer> spirallyTraverse(int matrix[][], int r, int c)
+    {
+        // code here 
+        ArrayList<Integer> v =new ArrayList<>();
+        if(r==0)
+          return v;
+        int a=0,b=c-1,d=0,e=r-1,temp=0;
+        while(a<=b && d<=e){
+            if(temp==0){
+                for(int i=a;i<=b;i++){
+                    v.add(matrix[d][i]);
+                }
+                temp=1;
+                d++;
+            }
+            else if(temp==1){
+                for(int i=d;i<=e;i++){
+                    v.add(matrix[i][b]);
+                }
+                temp=2;
+                b--;
+            }
+            else if(temp==2){
+                for(int i=b;i>=a;i--){
+                    v.add(matrix[e][i]);
+                }
+                temp=3;
+                e--;
+            }
+            else if(temp==3){
+                for(int i=e;i>=d;i--){
+                    v.add(matrix[i][a]);
+                }
+                temp=0;
+                a++;
+            }
+        }
+        return v;
+    }
+}
