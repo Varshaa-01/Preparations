@@ -1,0 +1,45 @@
+https://practice.geeksforgeeks.org/problems/tic-tac-toe2412/1
+
+class Solution {
+    
+    static int win[][]={{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};
+    
+    static boolean isWin(char[] board,char a){
+        for(int i=0;i<8;i++){
+            if(board[win[i][0]]==a && board[win[i][1]]==a && board[win[i][2]]==a){
+                return true;
+            }
+        }
+         return false;
+    }
+    
+    boolean isValid(char[] board) {
+        // code here
+        int Xcount=0,Ocount=0;
+        for(int i=0;i<9;i++){
+            if(board[i]=='X'){
+                Xcount++;
+            }
+            else{
+                Ocount++;
+            }
+        }
+    
+        if(Xcount==Ocount || Xcount==Ocount+1){
+            if(isWin(board,'O')){
+                if(isWin(board,'X')){
+                    return false;
+                }
+                return (Xcount==Ocount);
+            }
+        if(isWin(board,'X') && Xcount != Ocount+1){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+     return false;
+    }
+    
+}
