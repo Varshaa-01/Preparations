@@ -1,0 +1,32 @@
+https://practice.geeksforgeeks.org/problems/largest-subarray-of-0s-and-1s/1
+
+class Solution {
+
+    // arr[] : the input array containing 0s and 1s
+    // N : size of the input array
+    
+    // return the maximum length of the subarray
+    // with equal 0s and 1s
+    int maxLen(int[] arr, int N)
+    {
+        // Your code here
+        int max_len=0,sum=0;
+        HashMap<Integer,Integer>mp=new HashMap<>();
+        mp.put(0,-1);
+        for(int i=0;i<N;i++){
+            if(arr[i]==0){
+                sum-=1;
+            }
+            else{
+                sum+=1;
+            }
+            if(mp.containsKey(sum)){
+                max_len=Math.max(max_len,i-mp.get(sum));
+            }
+            else{
+                mp.put(sum,i);
+            }
+        }
+        return max_len;
+    }
+}
