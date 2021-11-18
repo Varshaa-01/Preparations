@@ -1,0 +1,27 @@
+https://practice.geeksforgeeks.org/problems/the-celebrity-problem/1
+
+class Solution 
+{
+    public:
+    //Function to find if there is a celebrity in the party or not.
+    int celebrity(vector<vector<int> >& M, int n) 
+    {
+        // code here 
+        int temp1[n]={0};
+        int temp2[n]={0};
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(M[i][j]==1){
+                    temp1[j]++;
+                    temp2[i]++;
+                }
+            }
+        }
+        for(int i=0;i<n;i++){
+            if(temp1[i]==n-1 && temp2[i]==0){
+                return i;
+            }
+        }
+        return -1;
+    }
+};
