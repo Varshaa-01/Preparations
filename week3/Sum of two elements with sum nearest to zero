@@ -1,0 +1,28 @@
+https://practice.geeksforgeeks.org/problems/two-numbers-with-sum-closest-to-zero1737/1#
+
+class Sol
+{
+    public static int closestToZero (int arr[], int n)
+    {
+        // your code here
+        Arrays.sort(arr);
+        int l=0,r=n-1;
+        int res=Integer.MAX_VALUE;
+        while(l<r){
+            int sum=arr[l]+arr[r];
+            if(Math.abs(sum)<Math.abs(res)){
+                res=sum;
+            }
+            else if(Math.abs(sum)==Math.abs(res) && sum>res){
+                res=sum;
+            }
+            if(sum<=0){
+                l++;
+            }
+            else{
+                r--;
+            }
+        }
+        return res;
+    }
+}
