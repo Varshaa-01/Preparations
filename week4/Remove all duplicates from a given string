@@ -1,0 +1,17 @@
+https://practice.geeksforgeeks.org/problems/remove-all-duplicates-from-a-given-string4321/1#hashtags
+
+class Solution {
+    String removeDuplicates(String str) {
+        // code here
+        String answer="";
+        Set<Character> result=new HashSet<>();
+        for(char ch : str.toCharArray()){
+            if(!result.contains(ch)){
+                answer+=ch;
+                result.add(ch);
+            }
+        }
+        return answer;
+    }
+}
+
