@@ -1,0 +1,21 @@
+https://practice.geeksforgeeks.org/problems/find-k-th-character-in-string3841/1
+
+class Solution {
+    char kthCharacter(int m, int n, int k) {
+        // code here
+        String temp=Integer.toBinaryString(m);
+        int i=0;
+        while(i<n){
+            String str="";
+            for(int j=0;j<temp.length();j++){
+                if(temp.charAt(j)=='0')
+                   str+="01";
+                else if(temp.charAt(j)=='1')
+                    str+="10";
+            }
+            i++;
+            temp=str;
+        }
+        return temp.charAt(k-1);
+    }
+}
