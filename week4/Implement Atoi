@@ -1,0 +1,20 @@
+https://practice.geeksforgeeks.org/problems/implement-atoi/1
+
+class Solution
+{
+    int atoi(String str) {
+	// Your code here
+	boolean sign=(str.charAt(0)=='-');
+	int i=(sign)? 1 : 0;
+	for(;i<str.length();i++){
+	    char ch=str.charAt(i);
+	    if(ch>='0' && ch<='9'){
+	        continue;
+	    }
+	    else{
+	        return -1;
+	    }
+	}
+	return Integer.parseInt(str);
+    }
+}
