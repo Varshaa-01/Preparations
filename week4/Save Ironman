@@ -1,0 +1,30 @@
+https://practice.geeksforgeeks.org/problems/save-ironman0227/1
+
+class Complete{
+    // Function for finding maximum and value pair
+    public static boolean saveIronman (String s) {
+        //Complete the function
+        String temp=s.toLowerCase();
+        int i=0,j=temp.length()-1;
+        while(i<j){
+        char a=temp.charAt(i);
+        char b=temp.charAt(j);
+        if(!Character.isLetter(a) && !Character.isDigit(a)){
+            i=i+1;
+            continue;
+        }
+        if(!Character.isLetter(b) && !Character.isDigit(b)){
+            j=j-1;
+            continue;
+        }
+        if(a != b){
+            return false;
+        }
+        else{
+            i++;
+            j--;
+        }
+    }
+    return true;
+    } 
+}
