@@ -1,0 +1,7 @@
+https://practice.geeksforgeeks.org/problems/pattern-searching5231/1#
+
+bool searchPattern(string str, string pat)
+{
+    // your code here
+    return str.find(pat)!=-1;
+}
