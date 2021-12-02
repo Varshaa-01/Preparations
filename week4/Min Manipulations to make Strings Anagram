@@ -1,0 +1,23 @@
+https://practice.geeksforgeeks.org/problems/min-manipulations-to-make-strings-anagram1421/1#
+
+class Solution 
+{ 
+    int minManipulation(int N, String S1, String S2) 
+    {
+        // code here
+        int count=0;
+        int[] temp=new int[26];
+        for(int i=0;i<S1.length();i++){
+            temp[S1.charAt(i)-'a']++;
+        }
+        for(int i=0;i<S2.length();i++){
+            temp[S2.charAt(i)-'a']--;
+        }
+        for(int i=0;i<26;i++){
+            if(temp[i] != 0){
+                count+=Math.abs(temp[i]);
+            }
+        }
+        return count/2;
+    }
+} 
