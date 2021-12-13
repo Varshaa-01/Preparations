@@ -1,0 +1,31 @@
+https://practice.geeksforgeeks.org/problems/count-occurences-of-anagrams5839/1#
+
+class Solution {
+
+    int search(String pat, String txt) {
+        // code here
+        int n=pat.length();
+        int m=txt.length();
+        
+        int[] arr1=new int[26];
+        int[] arr2=new int[26];
+        
+        for(int i=0;i<n;i++){
+            arr1[pat.charAt(i) - 'a']++;
+            arr2[txt.charAt(i) - 'a']++;
+        }
+        int count=0;
+        if(Arrays.equals(arr1,arr2)){
+            count++;
+        }
+        
+        for(int i=n;i<m;i++){
+            arr2[txt.charAt(i) - 'a']++;
+            arr2[txt.charAt(i-n) - 'a']--;
+            if(Arrays.equals(arr1,arr2)){
+                count++;
+            }
+        }
+        return count;
+    }
+}
