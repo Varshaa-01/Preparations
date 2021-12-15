@@ -1,0 +1,19 @@
+https://practice.geeksforgeeks.org/problems/longest-distinct-characters-in-string5848/1#
+
+class Solution{
+    static int longestSubstrDistinctChars(String S){
+        // code here
+        HashMap<Character,Integer> map=new HashMap<Character,Integer>();
+        int left=0,right=0,len=0;
+        int n=S.length();
+        while(right<n){
+            if(map.containsKey(S.charAt(right))){
+                left=Math.max(left,map.get(S.charAt(right))+1);
+            }
+            map.put(S.charAt(right),right);
+            len=Math.max(len,right-left+1);
+            right++;
+        }
+        return len;
+    }
+}
