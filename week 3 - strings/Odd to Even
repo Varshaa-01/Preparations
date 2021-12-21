@@ -1,0 +1,31 @@
+https://practice.geeksforgeeks.org/problems/odd-to-even0537/1#
+
+class Solution
+{
+    public String makeEven(String s)
+    {
+        //code here.
+        if(s.isEmpty()){
+            return "-1";
+        }
+        int last=Character.getNumericValue(s.charAt(s.length()-1));
+        if(last%2 == 0)return s;
+        int index=-1;
+        for(int i=0;i<s.length();i++){
+            int num=Character.getNumericValue(s.charAt(i));
+            if(num % 2 == 0){
+                index=i;
+                if(num<last){
+                    break;
+                }
+            }
+        }
+        if(index==-1)return s;
+        char[] arr=s.toCharArray();
+        char t=arr[s.length()-1];
+        arr[s.length()-1]=arr[index];
+        arr[index]=t;
+        return String.valueOf(arr);
+        
+    }
+}
