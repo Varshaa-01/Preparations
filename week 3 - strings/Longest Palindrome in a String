@@ -1,0 +1,51 @@
+https://practice.geeksforgeeks.org/problems/longest-palindrome-in-a-string3411/1#
+
+class Solution{
+    static String longestPalin(String S){
+        // code here
+        int start,end;
+        int max_len=1;
+        int n=S.length();
+        int first=0;
+        for(int i=1;i<n;i++){
+            //even length
+            start=i-1;
+            end=i;
+            while(start>=0 && end<n && S.charAt(start)==S.charAt(end)){
+                start--;
+                end++;
+            }
+            start++;
+            end--;
+            if(end-start+1>max_len && S.charAt(start)==S.charAt(end)){
+                first=start;
+                max_len=end-start+1;
+            }
+            
+            //odd length
+            start=i-1;
+            end=i+1;
+            while(start>=0 && end<n && S.charAt(start)==S.charAt(end)){
+                start--;
+                end++;
+            }
+            start++;
+            end--;
+            if(end-start+1>max_len && S.charAt(start)==S.charAt(end)){
+                first=start;
+                max_len=end-start+1;
+            }
+        }
+        String ans="";
+        if(max_len==1){
+            ans=S.valueOf(S.charAt(0));
+        }
+        else{
+            for(int i=first;i<=first+max_len-1;i++){
+                char temp=S.charAt(i);
+                ans=ans+temp;
+            }
+        }
+        return ans;
+    }
+}
