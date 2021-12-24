@@ -1,0 +1,35 @@
+https://practice.geeksforgeeks.org/problems/transform-string5648/1#
+
+class Solution
+{
+    int transform (String A, String B)
+    {
+        // code here
+        if(A.length() != B.length())
+            return -1;
+        int[] arr=new int[256];
+        for(int i=0;i<A.length();i++){
+            arr[A.charAt(i)]++;
+            arr[B.charAt(i)]--;
+        }
+        for(int i=0;i<256;i++){
+            if(arr[i] != 0){
+                return -1;
+            }
+        }
+        int result=0;
+        int i=A.length()-1;
+        int j=B.length()-1;
+        while(i>=0 && j>=0){
+            if(A.charAt(i)!=B.charAt(j)){
+                result++;
+                i--;
+            }
+            else{
+                i--;
+                j--;
+            }
+        }
+        return result;
+    }
+}
