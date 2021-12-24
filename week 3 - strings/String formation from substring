@@ -1,0 +1,32 @@
+https://practice.geeksforgeeks.org/problems/string-formation-from-substring2734/1#
+
+class Solution {
+    int isRepeat(String s) {
+        // code here
+        int[] arr=new int[s.length()];
+        Arrays.fill(arr,0);
+        int j=0;
+        for(int i=1;i<s.length();){
+            if(s.charAt(i)==s.charAt(j)){
+                arr[i]=j+1;
+                i++;
+                j++;
+            }
+            else{
+                if(j==0){
+                    arr[i]=0;
+                    i++;
+                }
+                else{
+                    j=arr[j-1];
+                }
+            }
+        }
+        if(arr[s.length()-1]==0)
+            return 0;
+        if(s.length()%(s.length()-arr[s.length()-1])==0)
+            return 1;
+        else
+            return 0;
+    }
+}
