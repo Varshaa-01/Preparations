@@ -1,0 +1,25 @@
+https://practice.geeksforgeeks.org/problems/longest-prefix-suffix2527/1#
+
+class Solution {
+    int lps(String s) {
+        // code here
+        int[] lps=new int[s.length()];
+        int len=0;
+        for(int i=1;i<s.length();){
+            if(s.charAt(i)==s.charAt(len)){
+                lps[i]=++len;
+                i++;
+            }
+            else{
+                if(len != 0){
+                    len=lps[len-1];
+                }
+                else{
+                    lps[i]=0;
+                    i++;
+                }
+            }
+        }
+        return lps[s.length()-1];
+    }
+}
