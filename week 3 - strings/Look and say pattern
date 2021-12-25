@@ -1,0 +1,26 @@
+https://practice.geeksforgeeks.org/problems/decode-the-pattern1138/1#
+
+class Solution{
+    static String lookandsay(int n) {
+        //your code here
+        String s="1";
+        if(n==1)
+            return s;
+        for(int i=2;i<=n;i++){
+            int len=s.length();
+            String temp="";
+            int j=0;
+            while(j<len){
+                char c=s.charAt(j);
+                int count=0;
+                while(j<len && (c==s.charAt(j))){
+                    j++;
+                    count++;
+                }
+                temp=temp+Integer.toString(count)+c;
+            }
+            s=temp;
+        }
+        return s;
+    }
+}
