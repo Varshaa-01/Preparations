@@ -1,0 +1,43 @@
+https://practice.geeksforgeeks.org/problems/match-specific-pattern/1#
+
+class GfG
+{
+/* The function returns an array of strings 
+present in the dictionary which matches
+the string pattern.
+You are required to complete this method */
+
+static boolean check(String a,String b){
+    HashMap <Character,Character> map=new HashMap<Character,Character>();
+    Set<Character> set=new HashSet<Character>();
+    if(a.length()==b.length()){
+        for(int i=0;i<a.length();i++){
+            char c=a.charAt(i);
+            if(map.containsKey(c) && map.get(c) != b.charAt(i)){
+                return false;
+            }
+            if(!map.containsKey(c) && set.contains(b.charAt(i))){
+                return false;
+            }
+            map.put(c,b.charAt(i));
+            set.add(b.charAt(i));
+        }
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+public static ArrayList<String> findMatchedWords(ArrayList<String> dict, String pattern)
+	{
+	    //add code here.
+	    ArrayList<String> result=new ArrayList<String>();
+	    for(int i=0;i<dict.size();i++){
+	        if(check(pattern,dict.get(i))){
+	            result.add(dict.get(i));
+	        }
+	    }
+	    return result;
+	}
+}
