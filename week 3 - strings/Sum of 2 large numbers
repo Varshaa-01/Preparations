@@ -1,0 +1,11 @@
+https://practice.geeksforgeeks.org/problems/sum-of-numbers-or-number1219/1#
+
+class Solution {
+    String findSum(String X, String Y) {
+        // code here
+        java.math.BigInteger n1=new java.math.BigInteger(X);
+        java.math.BigInteger n2=new java.math.BigInteger(Y);
+        java.math.BigInteger ans=n1.add(n2);
+        return ans.toString();
+    }
+}
