@@ -1,0 +1,13 @@
+https://practice.geeksforgeeks.org/problems/convert-to-roman-no/1#
+
+class Solution
+{
+	String convertToRoman(int n) {
+		//code here
+		String[] one={"","I","II","III","IV","V","VI","VII","VIII","IX"};
+		String[] ten={"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
+		String[] hun={"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
+		String[] th={"","M","MM","MMM"};
+		return th[n/1000]+hun[(n%1000)/100]+ten[(n%100)/10]+one[n%10];
+	}
+}
