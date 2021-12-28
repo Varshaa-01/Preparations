@@ -1,0 +1,23 @@
+https://practice.geeksforgeeks.org/problems/column-name-from-a-given-column-number4244/1#
+
+class Solution
+{
+    String colName (long n)
+    {
+        // your code here
+        StringBuilder name=new StringBuilder();
+        while(n>0){
+            int rem=(int)n % 26;
+            if(rem==0){
+                name.append("Z");
+                n=(n/26)-1;
+            }
+            else{
+                name.append((char)((rem-1)+'A'));
+                n=n/26;
+            }
+        }
+        name=name.reverse();
+        return name.toString();
+    }
+}
