@@ -1,0 +1,44 @@
+Lang used : cpp
+https://practice.geeksforgeeks.org/problems/alien-dictionary/1#
+
+class Solution{
+    public:
+    string findOrder(string dict[], int N, int K) {
+        //code here
+        unordered_map<char,vector<char>> map;
+        unordered_map<char,int>indegree;
+        for(int i=0;i<K;i++){
+            indegree[i+'a']=0;
+        }
+        for(int k=0;k<N-1;k++){
+            int i=0,j=0;
+            while(i<dict[k].size() and j<dict[k+1].size()){
+                if(dict[k][i] != dict[k+1][j]){
+                    map[dict[k][i]].push_back(dict[k+1][j]);
+                    indegree[dict[k+1][j]]++;
+                    break;
+                }
+                i++;
+                j++;
+            }
+        }
+        queue<char>q;
+        string ans;
+        for(auto x:indegree){
+            if(x.second==0){
+                q.push(x.first);
+            }
+        }
+        while(!q.empty()){
+            char c=q.front();
+            q.pop();
+            ans.push_back(c);
+            for(auto temp:map[c]){
+                indegree[temp]--;
+                if(indegree[temp]==0)
+                    q.push(temp);
+            }
+        }
+        return ans;
+    }
+};
