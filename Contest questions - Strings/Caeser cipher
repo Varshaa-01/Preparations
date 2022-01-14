@@ -1,0 +1,26 @@
+public static String caesarCipher(String s, int k) {
+    // Write your code here
+    StringBuilder sb=new StringBuilder("");
+    k=k%26;
+    for(char ch : s.toCharArray()){
+        if(ch>=65 && ch<=90){
+            char temp=(char)(ch + k);
+            if(temp>90){
+                temp=(char)((temp%90)+64);
+            }
+            sb.append(temp);
+        }
+        else if(ch>=97 && ch<=122){
+            char temp=(char)(ch+k);
+            if(temp>122){
+                temp=(char)((temp%122)+96);
+            }
+            sb.append(temp);
+        }
+        else{
+            sb.append(ch);
+        }
+    }
+    return sb.toString();
+
+    }
