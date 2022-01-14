@@ -1,0 +1,39 @@
+https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem
+
+static boolean isAnagram(String s1,String s2){
+        char[] cnt1=new char[26];
+        char[] cnt2=new char[26];
+        for(int i=0;i<s1.length();i++){
+            cnt1[s1.charAt(i)-97]+=1;
+            cnt2[s2.charAt(i)-97]+=1;
+        }
+        for(int i=0;i<26;i++){
+            if(cnt1[i] != cnt2[i]){
+                return false;
+            }
+        }
+        return true;
+ }
+ 
+ public static int sherlockAndAnagrams(String s) {
+    // Write your code here
+    int count=0;
+    int n=s.length();
+    for(int i=1;i<n;i++){
+        List<String> subsetlist=new ArrayList<>();
+        for(int j=0;j<n;j++){
+            if(i+j<=n){
+                subsetlist.add(s.substring(j,i+j));
+            }
+        }
+    
+    for(int k=0;k<subsetlist.size();k++){
+        for(int l=k+1;l<subsetlist.size();l++){
+            if(isAnagram(subsetlist.get(k),subsetlist.get(l))){
+                count++;
+            }
+        }
+    }
+    }
+    return count;
+    }
