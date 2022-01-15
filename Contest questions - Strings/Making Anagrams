@@ -1,0 +1,18 @@
+https://www.hackerrank.com/challenges/making-anagrams/problem
+
+public static int makingAnagrams(String s1, String s2) {
+    // Write your code here
+    int count=0;
+    char[] cnt1=new char[26];
+    char[] cnt2=new char[26];
+    for(int i=0;i<s1.length();i++){
+        cnt1[s1.charAt(i)-'a']+=1;
+    }
+    for(int j=0;j<s2.length();j++){
+        cnt2[s2.charAt(j)-'a']+=1;
+    }
+    for(int k=0;k<26;k++){
+        count+=Math.abs(cnt1[k]-cnt2[k]);
+    }
+    return count;
+    }
