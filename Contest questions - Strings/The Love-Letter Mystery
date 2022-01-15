@@ -1,0 +1,14 @@
+https://www.hackerrank.com/challenges/the-love-letter-mystery/problem
+
+public static int theLoveLetterMystery(String s) {
+    // Write your code here
+    int i=0;
+    int j=s.length()-1;
+    int count=0;
+    while(i<j){
+        count+=Math.abs(s.charAt(i)-s.charAt(j));
+        i++;
+        j--;
+    }
+    return count;
+    }
