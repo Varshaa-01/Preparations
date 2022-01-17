@@ -1,0 +1,28 @@
+https://www.hackerrank.com/challenges/weighted-uniform-string/problem
+
+public static List<String> weightedUniformStrings(String s, List<Integer> queries) {
+    // Write your code here
+    Set<Integer>weights=new HashSet<>();
+    int curr=0;
+    char prev=' ';
+    for(char ch : s.toCharArray()){
+        if(ch != prev){
+            curr=ch-'a'+1;
+        }
+        else{
+            curr+=ch-'a'+1;
+        }
+        prev=ch;
+        weights.add(curr);
+    }
+    List<String>result=new ArrayList<>();
+    for(Integer i : queries){
+        if(weights.contains(i)){
+            result.add("Yes");
+        }
+        else{
+            result.add("No");
+        }
+    }
+    return result;
+    }
