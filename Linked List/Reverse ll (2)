@@ -1,0 +1,32 @@
+https://leetcode.com/problems/reverse-linked-list-ii/
+
+class Solution {
+    public ListNode reverseBetween(ListNode head, int left, int right) {
+        ListNode leftnode=head;
+        ListNode rightnode=head;
+        for(int i=1;i<left;i++){
+            leftnode=leftnode.next;
+        }
+        for(int i=1;i<right;i++){
+            rightnode=rightnode.next;
+        }
+        ListNode size=leftnode;
+        ListNode start=leftnode;
+        int swap=0,len=0;
+        while(size != rightnode.next){
+            len=len+1;
+            size=size.next;
+        }
+        while(len>1){
+            for(int i=1;i<len;i++){
+                swap=leftnode.next.val;
+                leftnode.next.val=leftnode.val;
+                leftnode.val=swap;
+                leftnode=leftnode.next;
+            }
+            len=len-1;
+            leftnode=start;
+        }
+        return head;
+    }
+}
