@@ -1,0 +1,23 @@
+https://practice.geeksforgeeks.org/problems/union-of-two-linked-list/1#
+
+public static Node findUnion(Node head1,Node head2)
+	{
+	    //Add your code here.
+	    HashSet<Integer>hs=new HashSet<>();
+	    while(head1 != null){
+	        hs.add(head1.data);
+	        head1=head1.next;
+	    }
+	    while(head2 != null){
+	        hs.add(head2.data);
+	        head2=head2.next;
+	    }
+	    Node head=new Node(-1);
+	    Node temp=head;
+	    Iterator<Integer> it=hs.iterator();
+	    while(it.hasNext()){
+	        temp.next=new Node(it.next());
+	        temp=temp.next;
+	    }
+	    return head.next;
+	}
