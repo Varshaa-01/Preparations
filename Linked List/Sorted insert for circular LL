@@ -1,0 +1,33 @@
+https://practice.geeksforgeeks.org/problems/sorted-insert-for-circular-linked-list/1#
+
+class Solution
+{
+	public static Node sortedInsert(Node head,int data)
+         {
+            //creating temp node for inserting data.
+            Node temp=new Node(data);
+            if(head==null){
+                temp.next=temp;
+                return temp;
+            }
+            //inserting a node at the beginning.
+            Node curr=head;
+            while(curr.next!=head){
+                curr=curr.next;
+            }
+            if(head.data>data){
+                temp.next=head;
+                curr.next=temp;
+                return temp;
+            }
+            //inserting a node inbetween.
+            Node cur=head;
+            while(cur.next.data<data){
+                cur=cur.next;
+            }
+            temp.next=cur.next;
+            cur.next=temp;
+            
+            return head;
+         }
+}
