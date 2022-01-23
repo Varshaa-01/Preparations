@@ -1,0 +1,29 @@
+https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/
+
+class Solution {
+    public Node flatten(Node head) {
+        if(head==null)
+            return head;
+        Node curr=head;
+        while(curr!=null){
+            if(curr.child==null){
+                curr=curr.next;                
+            }
+            else{
+                Node next=curr.next;
+                Node child=curr.child;
+                curr.child=null;
+                curr.next=child;
+                child.prev=curr;
+                while(child.next!=null){
+                    child=child.next;
+                }
+                child.next=next;
+                if(next!=null){
+                    next.prev=child;
+                }
+            }
+        }
+        return head;
+    }
+}
